@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <style>
+    .tarjeta {
+      border-color: dimgrey;
+      border-width: 1.5px;
+      border-style: solid;
+      float: left;
+    }
+
+    .tabla{
+      text-align: center;
+    }
+
+
+
+  </style>
+
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+    <div>
+      <h1>Latest Mars News</h1>
+      <h3>{{mars_data.nasa_title}}</h3>
+      <p>{{mars_data.nasa_text}}</p>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <h1>Featured Mars Image</h1>
+        <img src="{{ mars_data.featured_image_url }}" alt="Featured Image" class="img-responsive">
+      </div>
+      <div class="col-md-4">
+        <div class="tarjeta">
+          <h1 class="text-center">Curren Weather on Mars</h1>
+          <p> {{mars_data.mars_weather}} </p>
+        </div>
+
+        <div class="tabla">
+
+          {{mars_data.facts | safe }}
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <img src="{{mars_data.usgs.img_url}}" alt="{{mars_data.usgs.title}}" class="img-responsive">
+          <h3>{{mars_data.usgs.title}}</h3>
+        </div>
+        <!--
+        <div class="card">
+          <img src="{{mars_data.usgs[1].img_url}}" alt="{{mars_data.usgs[1].title}}" class="img-responsive">
+          <h3>{{mars_data.usgs[0].title}}</h3>
+        </div>
+        -->
+      </div>
+      <!--
+      <div class="col-md-8">
+        <div class="card">
+          <img src="{{mars_data.usgs[2].img_url}}" alt="{{mars_data.usgs[2].title}}" class="img-responsive">
+          <h3>{{mars_data.usgs[2].title}}</h3>
+        </div>
+        <div class="card">
+          <img src="{{mars_data.usgs[3].img_url}}" alt="{{mars_data.usgs[3].title}}" class="img-responsive">
+          <h3>{{mars_data.usgs[3].title}}</h3>
+        </div>
+      </div>
+      -->
+    </div>
+
+  </div>
+</body>
+
+</html>
